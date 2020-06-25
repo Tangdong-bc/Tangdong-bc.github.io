@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>尚筹网第二天bug总结 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="尚筹网第二天bug总结1.过滤地址错误问题导致全过滤无法访问页面问题代码： 123&lt;mvc:exclude-mapping path &#x3D; &quot;&#x2F;admin&#x2F;to&#x2F;login&#x2F;page.html &quot; &#x2F;&gt;&lt;mvc:exclude-mapping path &#x3D; &quot;&#x2F;admin&#x2F;do&#x2F;login.html &quot; &#x2F;&gt;&lt;mvc:exclude-mapping path &#x3D; &quot;&#x2F;a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尚筹网第二天bug总结">
+<meta property="og:url" content="http://yoursite.com/2020/06/25/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%BA%8C%E5%A4%A9bug%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="尚筹网第二天bug总结1.过滤地址错误问题导致全过滤无法访问页面问题代码： 123&lt;mvc:exclude-mapping path &#x3D; &quot;&#x2F;admin&#x2F;to&#x2F;login&#x2F;page.html &quot; &#x2F;&gt;&lt;mvc:exclude-mapping path &#x3D; &quot;&#x2F;admin&#x2F;do&#x2F;login.html &quot; &#x2F;&gt;&lt;mvc:exclude-mapping path &#x3D; &quot;&#x2F;a">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-25T02:15:05.037Z">
+<meta property="article:modified_time" content="2020-06-25T02:28:37.348Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-尚筹网第二天bug总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/25/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%BA%8C%E5%A4%A9bug%E6%80%BB%E7%BB%93/" class="article-date">
+  <time datetime="2020-06-25T02:15:05.037Z" itemprop="datePublished">2020-06-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      尚筹网第二天bug总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="尚筹网第二天bug总结"><a href="#尚筹网第二天bug总结" class="headerlink" title="尚筹网第二天bug总结"></a>尚筹网第二天bug总结</h2><h3 id="1-过滤地址错误问题导致全过滤无法访问页面"><a href="#1-过滤地址错误问题导致全过滤无法访问页面" class="headerlink" title="1.过滤地址错误问题导致全过滤无法访问页面"></a>1.过滤地址错误问题导致全过滤无法访问页面</h3><p>问题代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;mvc:exclude-mapping path = <span class="string">"/admin/to/login/page.html "</span> /&gt;</span><br><span class="line">&lt;mvc:exclude-mapping path = <span class="string">"/admin/do/login.html "</span> /&gt;</span><br><span class="line">&lt;mvc:exclude-mapping path = <span class="string">"/admin/do/logout.html "</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>问题原因：地址后面有空格！</p>
+<p>问题解决：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 注册拦截器 --&gt;</span><br><span class="line">	&lt;mvc:interceptors&gt;</span><br><span class="line">		&lt;mvc:interceptor&gt;</span><br><span class="line">			&lt;!-- mvc:mapping 配置要拦截的资源</span><br><span class="line">			<span class="comment">/*对应一层路径，比如：/aaa</span></span><br><span class="line"><span class="comment">			/**对应多层路径，比如：/aaa/bbb 或/aaa/bbb/ccc 或/aaa/bbb/ccc/ddd --&gt;</span></span><br><span class="line"><span class="comment">			&lt;mvc:mapping path = "/**" /&gt;</span></span><br><span class="line"><span class="comment">			&lt;!-- mvc:exclude-mapping 配置不拦截的资源 --&gt;</span></span><br><span class="line"><span class="comment">			&lt;mvc:exclude-mapping path = "/admin/to/login/page.html" /&gt;</span></span><br><span class="line"><span class="comment">			&lt;mvc:exclude-mapping path = "/admin/do/login.html" /&gt;</span></span><br><span class="line"><span class="comment">			&lt;mvc:exclude-mapping path = "/admin/do/logout.html" /&gt;</span></span><br><span class="line"><span class="comment">			&lt;!-- 配置拦截器类 --&gt;</span></span><br><span class="line"><span class="comment">			&lt;bean class = "com.atguigu.crowd.mvc.interceptor.LoginInterceptor" /&gt;</span></span><br><span class="line"><span class="comment">		&lt;/mvc:interceptor&gt;</span></span><br><span class="line"><span class="comment">	&lt;/mvc:interceptors&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>问题结果：能正常访问未拦截资源。</p>
+<p>==========================================================================</p>
+<h3 id="2-代码位置错误，导致读取表格数据失败"><a href="#2-代码位置错误，导致读取表格数据失败" class="headerlink" title="2.代码位置错误，导致读取表格数据失败"></a>2.代码位置错误，导致读取表格数据失败</h3><p>问题原因：该段代码的位置放错了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;tr&gt;</span><br><span class="line">&lt;td&gt;$&#123;myStatus.count &#125;&lt;&#x2F;td&gt;</span><br><span class="line">&lt;td&gt;&lt;input type&#x3D;&quot;checkbox&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">&lt;td&gt;$&#123;admin.loginAcct &#125;&lt;&#x2F;td&gt;</span><br><span class="line">&lt;td&gt;$&#123;admin.userName &#125;&lt;&#x2F;td&gt;</span><br><span class="line">&lt;td&gt;$&#123;admin.email &#125;&lt;&#x2F;td&gt;</span><br><span class="line">&lt;td&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success btn-xs&quot;&gt;</span><br><span class="line">&lt;i class&#x3D;&quot; glyphicon glyphicon-check&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary btn-xs&quot;&gt;</span><br><span class="line">&lt;i class&#x3D;&quot; glyphicon glyphicon-pencil&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger btn-xs&quot;&gt;</span><br><span class="line">&lt;i class&#x3D;&quot; glyphicon glyphicon-remove&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">&lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;td&gt;</span><br><span class="line">&lt;&#x2F;tr&gt;</span><br></pre></td></tr></table></figure>
+
+<p>问题解决：放进去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:if test&#x3D;&quot;$&#123;!empty requestScope.pageInfo.list &#125;&quot;&gt;</span><br><span class="line">&lt;c:forEach items&#x3D;&quot;$&#123;requestScope.pageInfo.list &#125;&quot; var&#x3D;&quot;admin&quot; varStatus&#x3D;&quot;myStatus&quot;&gt;</span><br><span class="line">xxxxxxxxxxxxxx</span><br><span class="line">&lt;&#x2F;c:forEach&gt;</span><br><span class="line">&lt;&#x2F;c:if&gt;</span><br></pre></td></tr></table></figure>
+
+<p>问题结果：数据可正常取出</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/25/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%BA%8C%E5%A4%A9bug%E6%80%BB%E7%BB%93/" data-id="ckbu69o320005mchr7v9fdr40" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/03/ssm%E7%9A%84MapperTest%E6%B5%8B%E8%AF%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ssm的MapperTest测试</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/25/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%BA%8C%E5%A4%A9bug%E6%80%BB%E7%BB%93/">尚筹网第二天bug总结</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/03/ssm%E7%9A%84MapperTest%E6%B5%8B%E8%AF%95/">ssm的MapperTest测试</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/03/ssm%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BA%A7%E7%94%9F%E7%9A%84%E9%97%AE%E9%A2%98/">ssm插入数据时产生的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/02/2020.6.2%E6%89%80%E6%84%9F/">2020.6.2所感</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/02/mbg%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/">mbg逆向工程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
