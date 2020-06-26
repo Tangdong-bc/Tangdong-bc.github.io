@@ -5,13 +5,17 @@
   
 
   
-  <title>Hexo</title>
+  <title>尚筹网第三天bug总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="[10:16:37.632] [DEBUG] [http-apr-8080-exec-15] [org.springframework.web.servlet.DispatcherServlet] [DispatcherServlet with name ‘springDispatcherServlet’ processing GET request for [&#x2F;atcrowdfunding02-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尚筹网第三天bug总结">
+<meta property="og:url" content="http://yoursite.com/2020/06/26/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%B8%89%E5%A4%A9bug%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="[10:16:37.632] [DEBUG] [http-apr-8080-exec-15] [org.springframework.web.servlet.DispatcherServlet] [DispatcherServlet with name ‘springDispatcherServlet’ processing GET request for [&#x2F;atcrowdfunding02-">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-26T02:17:52.859Z">
+<meta property="article:modified_time" content="2020-06-26T03:27:58.353Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -62,9 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-尚筹网第三天bug总结" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-尚筹网第三天bug总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/06/26/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%B8%89%E5%A4%A9bug%E6%80%BB%E7%BB%93/" class="article-date">
   <time datetime="2020-06-26T02:17:52.859Z" itemprop="datePublished">2020-06-26</time>
@@ -77,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/26/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%B8%89%E5%A4%A9bug%E6%80%BB%E7%BB%93/">尚筹网第三天bug总结</a>
+    <h1 class="article-title" itemprop="name">
+      尚筹网第三天bug总结
     </h1>
   
 
@@ -127,285 +129,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-尚筹网第二天bug总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/06/25/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%BA%8C%E5%A4%A9bug%E6%80%BB%E7%BB%93/" class="article-date">
-  <time datetime="2020-06-25T02:15:05.037Z" itemprop="datePublished">2020-06-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/25/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%BA%8C%E5%A4%A9bug%E6%80%BB%E7%BB%93/">尚筹网第二天bug总结</a>
-    </h1>
+    <a href="/2020/06/25/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%BA%8C%E5%A4%A9bug%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">尚筹网第二天bug总结</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="尚筹网第二天bug总结"><a href="#尚筹网第二天bug总结" class="headerlink" title="尚筹网第二天bug总结"></a>尚筹网第二天bug总结</h2><h3 id="1-过滤地址错误问题导致全过滤无法访问页面"><a href="#1-过滤地址错误问题导致全过滤无法访问页面" class="headerlink" title="1.过滤地址错误问题导致全过滤无法访问页面"></a>1.过滤地址错误问题导致全过滤无法访问页面</h3><p>问题代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;mvc:exclude-mapping path = <span class="string">"/admin/to/login/page.html "</span> /&gt;</span><br><span class="line">&lt;mvc:exclude-mapping path = <span class="string">"/admin/do/login.html "</span> /&gt;</span><br><span class="line">&lt;mvc:exclude-mapping path = <span class="string">"/admin/do/logout.html "</span> /&gt;</span><br></pre></td></tr></table></figure>
-
-<p>问题原因：地址后面有空格！</p>
-<p>问题解决：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 注册拦截器 --&gt;</span><br><span class="line">	&lt;mvc:interceptors&gt;</span><br><span class="line">		&lt;mvc:interceptor&gt;</span><br><span class="line">			&lt;!-- mvc:mapping 配置要拦截的资源</span><br><span class="line">			<span class="comment">/*对应一层路径，比如：/aaa</span></span><br><span class="line"><span class="comment">			/**对应多层路径，比如：/aaa/bbb 或/aaa/bbb/ccc 或/aaa/bbb/ccc/ddd --&gt;</span></span><br><span class="line"><span class="comment">			&lt;mvc:mapping path = "/**" /&gt;</span></span><br><span class="line"><span class="comment">			&lt;!-- mvc:exclude-mapping 配置不拦截的资源 --&gt;</span></span><br><span class="line"><span class="comment">			&lt;mvc:exclude-mapping path = "/admin/to/login/page.html" /&gt;</span></span><br><span class="line"><span class="comment">			&lt;mvc:exclude-mapping path = "/admin/do/login.html" /&gt;</span></span><br><span class="line"><span class="comment">			&lt;mvc:exclude-mapping path = "/admin/do/logout.html" /&gt;</span></span><br><span class="line"><span class="comment">			&lt;!-- 配置拦截器类 --&gt;</span></span><br><span class="line"><span class="comment">			&lt;bean class = "com.atguigu.crowd.mvc.interceptor.LoginInterceptor" /&gt;</span></span><br><span class="line"><span class="comment">		&lt;/mvc:interceptor&gt;</span></span><br><span class="line"><span class="comment">	&lt;/mvc:interceptors&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>问题结果：能正常访问未拦截资源。</p>
-<p>==========================================================================</p>
-<h3 id="2-代码位置错误，导致读取表格数据失败"><a href="#2-代码位置错误，导致读取表格数据失败" class="headerlink" title="2.代码位置错误，导致读取表格数据失败"></a>2.代码位置错误，导致读取表格数据失败</h3><p>问题原因：该段代码的位置放错了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;tr&gt;</span><br><span class="line">&lt;td&gt;$&#123;myStatus.count &#125;&lt;&#x2F;td&gt;</span><br><span class="line">&lt;td&gt;&lt;input type&#x3D;&quot;checkbox&quot;&gt;&lt;&#x2F;td&gt;</span><br><span class="line">&lt;td&gt;$&#123;admin.loginAcct &#125;&lt;&#x2F;td&gt;</span><br><span class="line">&lt;td&gt;$&#123;admin.userName &#125;&lt;&#x2F;td&gt;</span><br><span class="line">&lt;td&gt;$&#123;admin.email &#125;&lt;&#x2F;td&gt;</span><br><span class="line">&lt;td&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-success btn-xs&quot;&gt;</span><br><span class="line">&lt;i class&#x3D;&quot; glyphicon glyphicon-check&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-primary btn-xs&quot;&gt;</span><br><span class="line">&lt;i class&#x3D;&quot; glyphicon glyphicon-pencil&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">&lt;&#x2F;button&gt;</span><br><span class="line">&lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;btn btn-danger btn-xs&quot;&gt;</span><br><span class="line">&lt;i class&#x3D;&quot; glyphicon glyphicon-remove&quot;&gt;&lt;&#x2F;i&gt;</span><br><span class="line">&lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;td&gt;</span><br><span class="line">&lt;&#x2F;tr&gt;</span><br></pre></td></tr></table></figure>
-
-<p>问题解决：放进去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;c:if test&#x3D;&quot;$&#123;!empty requestScope.pageInfo.list &#125;&quot;&gt;</span><br><span class="line">&lt;c:forEach items&#x3D;&quot;$&#123;requestScope.pageInfo.list &#125;&quot; var&#x3D;&quot;admin&quot; varStatus&#x3D;&quot;myStatus&quot;&gt;</span><br><span class="line">xxxxxxxxxxxxxx</span><br><span class="line">&lt;&#x2F;c:forEach&gt;</span><br><span class="line">&lt;&#x2F;c:if&gt;</span><br></pre></td></tr></table></figure>
-
-<p>问题结果：数据可正常取出</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/25/%E5%B0%9A%E7%AD%B9%E7%BD%91%E7%AC%AC%E4%BA%8C%E5%A4%A9bug%E6%80%BB%E7%BB%93/" data-id="ckbu69o320005mchr7v9fdr40" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-ssm的MapperTest测试" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/06/03/ssm%E7%9A%84MapperTest%E6%B5%8B%E8%AF%95/" class="article-date">
-  <time datetime="2020-06-03T02:24:20.732Z" itemprop="datePublished">2020-06-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/03/ssm%E7%9A%84MapperTest%E6%B5%8B%E8%AF%95/">ssm的MapperTest测试</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ssm的MapperTest测试"><a href="#ssm的MapperTest测试" class="headerlink" title="ssm的MapperTest测试"></a>ssm的MapperTest测试</h1><h6 id="java-lang-IllegalStateException-Failed-to-load-ApplicationContext"><a href="#java-lang-IllegalStateException-Failed-to-load-ApplicationContext" class="headerlink" title="java.lang.IllegalStateException: Failed to load ApplicationContext"></a>java.lang.IllegalStateException: Failed to load ApplicationContext</h6><p>​    Caused by: org.springframework.beans.factory.BeanCreationException: </p>
-<p>​    Error creating bean with name ‘sqlSessionFactory’ defined in class path resource [applicationContext.xml]: Invocation of init method failed; nested exception is org.springframework.core.</p>
-<p>​    NestedIOException: Failed to parse mapping resource: ‘file [D:\JAVAEE workplace\ssm-crud\target\classes\mapper\EmployeeMapper.xml]’; nested exception is org.apache.ibatis.builder.</p>
-<p>​    BuilderException: Error parsing Mapper XML. Cause: org.apache.ibatis.builder.</p>
-<p>​    BuilderException: Error resolving class. Cause: org.apache.ibatis.type.</p>
-<p>​    TypeException: Could not resolve type alias ‘com.atguigu/crud/bean/Department’.  Cause: java.lang.ClassNotFoundException: Cannot find class: com.atguigu/crud/bean/Department.</p>
-<p>翻译：</p>
-<p>​    无法加载ApplicationContext。</p>
-<p>​    造成原因：在内路径applicationContext.xml下创建sqlSessionFactory的bean出错：调用init方法失败，嵌套异常为org.springframework.core。</p>
-<p>​    NestedIOException:无法分析映射资源 EmployeeMapper.xml。</p>
-<p>​    BuilderException:映射文件出错。</p>
-<p>​    BuilderException: 解析类时出错。</p>
-<p>​    TypeException: 无法解析类型别名 ‘com.atguigu/crud/bean/Department’，造成原因找不到类com.atguigu/crud/bean/Department。</p>
-<p><u>——————————————————————————————————————————–</u></p>
-<p>1.查看了配置文件没问题。</p>
-<p>2.检查映射文件。</p>
-<p>3.把项目从新写了一遍，还是这个问题，排除编写问题，应该是环境问题。</p>
-<p>4.好吧，不是环境问题，忘记导一个分页的包了</p>
-<p><img src="C:%5CUsers%5Casus%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200603183644245.png" alt="image-20200603183644245"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/03/ssm%E7%9A%84MapperTest%E6%B5%8B%E8%AF%95/" data-id="ckbu69o300004mchr14i2b4j4" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ssm插入数据时产生的问题" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/06/03/ssm%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BA%A7%E7%94%9F%E7%9A%84%E9%97%AE%E9%A2%98/" class="article-date">
-  <time datetime="2020-06-03T02:09:33.235Z" itemprop="datePublished">2020-06-03</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/03/ssm%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BA%A7%E7%94%9F%E7%9A%84%E9%97%AE%E9%A2%98/">ssm插入数据时产生的问题</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ssm插入数据时产生的问题"><a href="#ssm插入数据时产生的问题" class="headerlink" title="ssm插入数据时产生的问题"></a>ssm插入数据时产生的问题</h1><h6 id="org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-com-atguigu-crud-dao-DepartmentMapper-insertSelective"><a href="#org-apache-ibatis-binding-BindingException-Invalid-bound-statement-not-found-com-atguigu-crud-dao-DepartmentMapper-insertSelective" class="headerlink" title="org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.atguigu.crud.dao.DepartmentMapper.insertSelective"></a>org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.atguigu.crud.dao.DepartmentMapper.insertSelective</h6><p>翻译：org.apache.ibatis.binding.BindingException:无效的约束语句（没有找到）：com.atguigu.crud.dao.DepartmentMapper.insertSelective</p>
-<p><u>——————————————————————————————————————————-</u></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/03/ssm%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E6%97%B6%E4%BA%A7%E7%94%9F%E7%9A%84%E9%97%AE%E9%A2%98/" data-id="ckbu69o2z0003mchrepjyfz0t" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2020.6.2所感" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/06/02/2020.6.2%E6%89%80%E6%84%9F/" class="article-date">
-  <time datetime="2020-06-02T13:58:24.082Z" itemprop="datePublished">2020-06-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/02/2020.6.2%E6%89%80%E6%84%9F/">2020.6.2所感</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/02/2020.6.2%E6%89%80%E6%84%9F/" data-id="ckbu69nvd0000mchr73oncb1n" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-mbg逆向工程" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/06/02/mbg%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" class="article-date">
-  <time datetime="2020-06-02T13:57:43.000Z" itemprop="datePublished">2020-06-02</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/02/mbg%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/">mbg逆向工程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="mbg逆向工程时出现的问题"><a href="#mbg逆向工程时出现的问题" class="headerlink" title="mbg逆向工程时出现的问题"></a>mbg逆向工程时出现的问题</h1><h6 id=""><a href="#" class="headerlink" title=""></a></h6><p>Tue Jun 02 21:54:53 CST 2020 WARN: </p>
-<p>​    Establishing SSL connection without server’s identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn’t set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to ‘false’. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.</p>
-<p>​    翻译：不建议在没有服务器身份验证的情况下建立SSL连接。根据MySQL 5.5.45+、5.6.26+和5.7.6+的要求，如果不设置显式选项，则必须建立默认的SSL连接。您需要通过设置useSSL=false显式地禁用SSL，或者设置useSSL=true并为服务器证书验证提供信任存储</p>
-<p><u>——————————————————————————————————————————</u></p>
-<p>​    经过翻译后是不是很清晰了,不建议在没有服务器身份验证的情况下建立SSL连接,<strong>只是不建议,如果你执意这么做的话呢,当然可以无视,</strong>那么如果你接受了人家的建议,该怎么解决这个问题呢?很简单,在你连接数据库的url后面加上参数即可,例如:</p>
-<p>​    jdbk:mysql://localhost:3306/testdb?useSSL=false</p>
-<p>​    使用上述标红的URL,即可解决该警告,标红参数前面为你数据库连接URL,如果有多个参数记得用&amp;连接,例如：</p>
-<p>​    jdbk:mysql://localhost:3306/testdb?characterEncoding=utf-8&amp;useSSL=false</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/02/mbg%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B/" data-id="ckbu69o2y0002mchrclehft75" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/06/01/hello-world/" class="article-date">
-  <time datetime="2020-06-01T12:35:17.605Z" itemprop="datePublished">2020-06-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/01/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/01/hello-world/" data-id="ckbu69o2w0001mchre2v872dn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
